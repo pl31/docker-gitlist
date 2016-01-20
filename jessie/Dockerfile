@@ -8,7 +8,7 @@ RUN echo "Europe/Berlin" > /etc/timezone && \
     apt-get -y upgrade && \
     apt-get -y install \
         apache2 \
-        libapache2-mod-php
+        libapache2-mod-php5
 
 # install gitlist
 RUN (cd /var/www/html/ && \
