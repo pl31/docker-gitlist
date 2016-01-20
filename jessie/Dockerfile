@@ -15,7 +15,7 @@ RUN (cd /var/www/html/ && \
     curl -0 https://s3.amazonaws.com/gitlist/gitlist-master.tar.gz | tar -zx) && \
     (cd /var/www/html/gitlist/ && \    
     mv config.ini-example config.ini && \
-    mkdir cache && chown a+rwx cache/) && \
+    mkdir cache && chmod a+rwx cache/) && \
     (cd /home/ && \
     mkdir -p /home/git/repositories/)
 
