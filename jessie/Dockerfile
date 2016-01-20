@@ -23,3 +23,5 @@ RUN (cd /var/www/html/ && \
 VOLUME /home/git/repositories/
 # web server port
 EXPOSE 80
+
+CMD service apache2 start && while true; do sleep 1d; done
