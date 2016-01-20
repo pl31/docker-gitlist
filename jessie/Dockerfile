@@ -10,6 +10,8 @@ RUN echo "Europe/Berlin" > /etc/timezone && \
         apache2 \
         libapache2-mod-php5
 
+COPY files/ /
+
 # install gitlist
 RUN (cd /var/www/html/ && \
     curl -0 https://s3.amazonaws.com/gitlist/gitlist-master.tar.gz | tar -zx) && \
@@ -17,7 +19,8 @@ RUN (cd /var/www/html/ && \
     mv config.ini-example config.ini && \
     mkdir cache && chmod a+rwx cache/) && \
     (cd /home/ && \
-    mkdir -p /home/git/repositories/)
+    mkdir -p /home/git/repositories/) && \
+    ln -s /etc/apache2/conf-available/gitlist.conf /etc/apache2/conf-enabled/gitlist.conf
 
 # repositories folder
 VOLUME /home/git/repositories/
