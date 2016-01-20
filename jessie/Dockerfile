@@ -20,6 +20,7 @@ RUN (cd /var/www/html/ && \
     mkdir cache && chmod a+rwx cache/) && \
     (cd /home/ && \
     mkdir -p /home/git/repositories/) && \
+    a2enmod rewrite && \
     ln -s /etc/apache2/conf-available/gitlist.conf /etc/apache2/conf-enabled/gitlist.conf
 
 # repositories folder
